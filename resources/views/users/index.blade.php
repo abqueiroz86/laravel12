@@ -4,6 +4,6 @@
 
 @section('content')
     @foreach ( $users as $user )
-        <div> {{ $user->name . ' - ' . $user->email }} </div>
+        <div class='user_name'> {{ $user->name . ' - ' . $user->email }} </div>
     @endforeach
 @endsection
