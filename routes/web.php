@@ -7,5 +7,9 @@ Route::get('/', function () {
     return view('welcome');
 });
 
-Route::get('admin/usuarios', [UserController::class, 'index']);
-Route::get('admin/usuarios/{user}', [UserController::class, 'show']);
+Route::prefix('admin/usuarios')->group(function () {
+    Route::get('/', [UserController::class, 'index'])->name('usuarios.index');
+    Route::get('/cadastrar', [UserController::class, 'create'])->name('usuarios.create');
+    Route::post('/cadastrar', [UserController::class, 'store'])->name('usuarios.store');
+    Route::get('/{user}', [UserController::class, 'show']);
+});

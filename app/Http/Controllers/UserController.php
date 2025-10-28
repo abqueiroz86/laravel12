@@ -14,6 +14,21 @@ class UserController extends Controller
 
     public function show(User $user){
         return view('users.show',['user' => $user]);
-        // return $user;
+    }
+
+    public function create(){
+        return view('users.store');
+    }
+
+    public function store(Request $request){
+        $input = $request->validate([
+            'name' => 'required|string|max:255',
+            'email' => 'required|string|email|max:255|unique:users',
+            'password' => 'required|string|min:8',
+        ]);
+        
+        User::create($input);
+
+        return redirect()->route('usuarios.index');
     }
 }
