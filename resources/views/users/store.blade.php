@@ -1,6 +1,6 @@
 @extends('layouts.master')
 
-@section('page_name','Index')
+@section('page_name','Cadastrar Usuário')
 
 @section('content')
     <a href="{{ route('usuarios.index') }}">Listar Usuários</a>

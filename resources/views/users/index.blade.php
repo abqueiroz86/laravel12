@@ -1,9 +1,44 @@
 @extends('layouts.master')
 
-@section('page_name','Index')
+@section('page_name','Usuários Cadastrados')
 
 @section('content')
-    @foreach ( $users as $user )
-        <div class='user_name'> {{ $user->name . ' - ' . $user->email }} </div>
-    @endforeach
+    <div class="table-container">
+        <table id="usersTable">
+            <thead>
+                <tr>
+                    <th>Usuário</th>
+                    <th>Email</th>
+                    <th>Data de Cadastro</th>
+                    {{-- <th>Ações</th> --}}
+                </tr>
+            </thead>
+            <tbody id="tableBody">
+                @foreach ( $users as $user )
+                    <tr>
+                        <td>
+                            <div class="user-info">
+                                <strong>{{ $user->name }}</strong>
+                            </div>
+                        </td>
+                        <td>{{ $user->email }}</td>
+                        <td>{{ $user->created_at }}</td>
+                        {{-- <td>
+                            <div class="actions">
+                                <button class="btn-action btn-edit" onclick="editUser(${user.id})">✏️ Editar</button>
+                                <button class="btn-action btn-delete" onclick="deleteUser(${user.id})">🗑️ Excluir</button>
+                            </div>
+                        </td> --}}
+                    </tr>
+                @endforeach
+            </tbody>
+        </table>
+        <div id="noResults" class="no-results" style="display: none;">
+            Nenhum usuário encontrado
+        </div>
+    </div>
+
+    <div class="footer">
+        <p>Total de usuários: <strong id="totalUsers">{{ $users->count() }}</strong></p>
+    </div>
 @endsection

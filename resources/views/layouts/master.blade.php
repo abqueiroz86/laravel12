@@ -7,8 +7,25 @@
     <title>Curso Laravel 12</title>
 </head>
 <body>
-    <h1 class='title'>@yield('page_name')</h1>
-    @yield('content')
+
+    <div class="container">
+        <div class="header">
+            <h1>🚀 Sistema de Cadastro</h1>
+            <p>Gerencie seus usuários de forma simples e eficiente</p>
+            <h1 class='title'>@yield('page_name')</h1>
+        </div>
+
+        <div class="content">
+
+            @yield('content')
+
+        </div>
+
+        <div class="footer">
+            <p>&copy; 2025 Sistema de Cadastro. Todos os direitos reservados.</p>
+        </div>
+    </div>
+
     @vite('resources/js/app.js')
 </body>
 </html>
