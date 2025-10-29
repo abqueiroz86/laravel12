@@ -4,7 +4,7 @@
 
 @section('content')
     <a href="{{ route('usuarios.index') }}">Listar Usuários</a>
-    <form action="{{ route('usuarios.store') }}" method="POST">
+    <form action="{{ route('usuarios.store') }}" method="POST" enctype="multipart/form-data">
         @csrf
 
         @if ($errors->any())
@@ -23,6 +23,10 @@
         <div>
             <label for="password">Password:</label>
             <input type="password" id="password" name="password">
+        </div>
+        <div>
+            <label for="picture">Picture:</label>
+            <input type="file" id="picture" name="picture">
         </div>
         <button type="submit">Save User</button>
 @endsection

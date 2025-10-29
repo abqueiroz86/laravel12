@@ -25,8 +25,14 @@ class UserController extends Controller
             'name' => 'required|string|max:255',
             'email' => 'required|string|email|max:255|unique:users',
             'password' => 'required|string|min:8',
+            'picture' => 'nullable|file|max:2048',
         ]);
-        
+
+        if(!empty($input['picture'] && $input['picture']->isValid())){
+            $path = $input['picture']->store();
+            $input['picture'] = $path;
+        }
+
         User::create($input);
 
         return redirect()->route('usuarios.index');
