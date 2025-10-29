@@ -33,12 +33,21 @@
                 @endforeach
             </tbody>
         </table>
-        <div id="noResults" class="no-results" style="display: none;">
-            Nenhum usuário encontrado
-        </div>
-    </div>
 
-    <div class="footer">
-        <p>Total de usuários: <strong id="totalUsers">{{ $users->count() }}</strong></p>
+        <div class="pagination-container">
+            <div class="pagination-info">
+                Mostrando <strong>{{ $users->firstItem() }}</strong> até 
+                <strong>{{ $users->lastItem() }}</strong> de 
+                <strong>{{ $users->total() }}</strong> usuários
+            </div>
+            
+            <div class="pagination-wrapper">
+                {{ $users->links('pagination.custom') }}
+            </div>
+
+            <div id="noResults" class="no-results" style="display: none;">
+                Nenhum usuário encontrado
+            </div>
+        </div>
     </div>
 @endsection

@@ -172,7 +172,7 @@ thead {
 }
 
 thead th {
-    padding: 20px; 
+    padding: 20px;
     text-align: left;
     font-weight: 600;
     font-size: 1em;
@@ -283,6 +283,337 @@ tbody td {
     font-size: 1.1em;
 }
 
+/* ===== Paginação Personalizada ===== */
+
+.pagination-wrapper {
+    display: flex;
+    justify-content: center;
+    margin: 30px 0;
+}
+
+.pagination {
+    display: flex;
+    list-style: none;
+    gap: 8px;
+    padding: 0;
+    margin: 0;
+    align-items: center;
+}
+
+.pagination .page-item {
+    display: inline-block;
+}
+
+.pagination .page-link {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    min-width: 40px;
+    height: 40px;
+    padding: 8px 12px;
+    border: 2px solid #e0e0e0;
+    border-radius: 10px;
+    color: #667eea;
+    text-decoration: none;
+    font-weight: 600;
+    transition: all 0.3s ease;
+    background: white;
+}
+
+.pagination .page-link:hover {
+    background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+    color: white;
+    border-color: transparent;
+    transform: translateY(-2px);
+    box-shadow: 0 4px 12px rgba(102, 126, 234, 0.4);
+}
+
+.pagination .page-item.active .page-link {
+    background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+    color: white;
+    border-color: transparent;
+    box-shadow: 0 4px 15px rgba(102, 126, 234, 0.4);
+}
+
+.pagination .page-item.disabled .page-link {
+    color: #ccc;
+    border-color: #f0f0f0;
+    background: #fafafa;
+    cursor: not-allowed;
+    pointer-events: none;
+}
+
+/* Setas de navegação */
+.pagination .page-item:first-child .page-link,
+.pagination .page-item:last-child .page-link {
+    font-size: 1.2em;
+    padding: 8px 16px;
+}
+
+/* Estilo para reticências (...) */
+.pagination .page-item.disabled span {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    min-width: 40px;
+    height: 40px;
+    color: #999;
+    font-weight: 600;
+}
+
+/* Animação ao clicar */
+.pagination .page-link:active {
+    transform: translateY(0) scale(0.95);
+}
+
+/* ===== Informações da Paginação ===== */
+.pagination-info {
+    text-align: center;
+    color: #666;
+    margin: 20px 0;
+    font-size: 0.95em;
+}
+
+.pagination-info strong {
+    color: #667eea;
+    font-weight: 700;
+}
+
+/* ===== Container da Paginação (para usar na view) ===== */
+.pagination-container {
+    background: white;
+    padding: 20px;
+    border-radius: 0 0 20px 20px;
+    box-shadow: 0 5px 20px rgba(0, 0, 0, 0.05);
+    margin-top: -1px;
+}
+
+/* ===== Estilo alternativo com fundo ===== */
+.pagination-alt .page-link {
+    background: #f8f9ff;
+    border: none;
+}
+
+.pagination-alt .page-link:hover {
+    background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+    color: white;
+}
+
+.pagination-alt .page-item.active .page-link {
+    background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+    color: white;
+}
+
+.form-container {
+    max-width: 600px;
+    margin: 40px auto;
+    background: white;
+    border-radius: 20px;
+    box-shadow: 0 20px 60px rgba(0, 0, 0, 0.1);
+    overflow: hidden;
+}
+
+.form-header {
+    background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+    padding: 40px;
+    text-align: center;
+    color: white;
+}
+
+.form-header h2 {
+    margin: 0;
+    font-size: 2em;
+    font-weight: 700;
+}
+
+.form-header p {
+    margin: 10px 0 0;
+    opacity: 0.9;
+}
+
+.form-body {
+    padding: 40px;
+}
+
+.back-link {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    color: #667eea;
+    text-decoration: none;
+    font-weight: 600;
+    margin-bottom: 30px;
+    transition: all 0.3s ease;
+}
+
+.back-link:hover {
+    color: #764ba2;
+    transform: translateX(-5px);
+}
+
+.alert {
+    padding: 15px 20px;
+    border-radius: 12px;
+    margin-bottom: 25px;
+    animation: slideIn 0.3s ease;
+}
+
+@keyframes slideIn {
+    from {
+        opacity: 0;
+        transform: translateY(-10px);
+    }
+
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+.alert-danger {
+    background: #fee;
+    border-left: 4px solid #dc3545;
+    color: #721c24;
+}
+
+.alert ul {
+    margin: 8px 0 0 20px;
+    padding: 0;
+}
+
+.alert li {
+    margin: 5px 0;
+}
+
+.form-group {
+    margin-bottom: 25px;
+}
+
+.form-group label {
+    display: block;
+    margin-bottom: 8px;
+    color: #333;
+    font-weight: 600;
+    font-size: 0.95em;
+}
+
+.form-group label span {
+    color: #dc3545;
+}
+
+.form-control {
+    width: 100%;
+    padding: 14px 18px;
+    border: 2px solid #e0e0e0;
+    border-radius: 12px;
+    font-size: 1em;
+    font-family: inherit;
+    transition: all 0.3s ease;
+    background: #fafafa;
+}
+
+.form-control:focus {
+    outline: none;
+    border-color: #667eea;
+    background: white;
+    box-shadow: 0 0 0 3px rgba(102, 126, 234, 0.1);
+}
+
+.form-control:hover {
+    border-color: #667eea;
+    background: white;
+}
+
+.file-input-wrapper {
+    position: relative;
+    overflow: hidden;
+    display: inline-block;
+    width: 100%;
+}
+
+.file-input-wrapper input[type=file] {
+    position: absolute;
+    left: -9999px;
+}
+
+.file-input-label {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 10px;
+    padding: 14px 18px;
+    border: 2px dashed #e0e0e0;
+    border-radius: 12px;
+    background: #fafafa;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    color: #666;
+    font-weight: 500;
+}
+
+.file-input-label:hover {
+    border-color: #667eea;
+    background: #f8f9ff;
+    color: #667eea;
+}
+
+.file-name {
+    margin-top: 10px;
+    padding: 8px 12px;
+    background: #f8f9ff;
+    border-radius: 8px;
+    color: #667eea;
+    font-size: 0.9em;
+    display: none;
+}
+
+.file-name.show {
+    display: block;
+}
+
+.btn-submit {
+    width: 100%;
+    padding: 16px;
+    background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+    color: white;
+    border: none;
+    border-radius: 12px;
+    font-size: 1.1em;
+    font-weight: 700;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    box-shadow: 0 4px 15px rgba(102, 126, 234, 0.4);
+    margin-top: 10px;
+}
+
+.btn-submit:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 6px 20px rgba(102, 126, 234, 0.6);
+}
+
+.btn-submit:active {
+    transform: translateY(0);
+}
+
+.input-icon {
+    position: relative;
+}
+
+.input-icon input {
+    padding-left: 45px;
+}
+
+.input-icon::before {
+    content: attr(data-icon);
+    position: absolute;
+    left: 16px;
+    top: 50%;
+    transform: translateY(-50%);
+    font-size: 1.2em;
+    color: #999;
+    pointer-events: none;
+}
+
 @media (max-width: 768px) {
     .header {
         padding: 30px 20px;
@@ -326,5 +657,44 @@ tbody td {
 
     .actions {
         flex-direction: column;
+    }
+
+    .pagination {
+        gap: 5px;
+    }
+
+    .pagination .page-link {
+        min-width: 35px;
+        height: 35px;
+        padding: 6px 10px;
+        font-size: 0.9em;
+    }
+
+    .pagination .page-item:first-child .page-link,
+    .pagination .page-item:last-child .page-link {
+        padding: 6px 12px;
+    }
+
+    /* Esconde números no meio em telas pequenas */
+    .pagination .page-item:not(.active):not(:first-child):not(:last-child):not(.disabled) {
+        display: none;
+    }
+
+    .pagination .page-item.active,
+    .pagination .page-item.disabled {
+        display: inline-block;
+    }
+
+    .form-container {
+        margin: 20px;
+    }
+
+    .form-header,
+    .form-body {
+        padding: 30px 20px;
+    }
+
+    .form-header h2 {
+        font-size: 1.6em;
     }
 }
