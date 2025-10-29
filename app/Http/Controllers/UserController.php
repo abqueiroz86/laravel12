@@ -25,11 +25,11 @@ class UserController extends Controller
             'name' => 'required|string|max:255',
             'email' => 'required|string|email|max:255|unique:users',
             'password' => 'required|string|min:8',
-            'picture' => 'nullable|file|max:2048',
+            'picture' => 'nullable|file|max:2048|mimes:jpg,jpeg,png,gif',
         ]);
 
-        if(!empty($input['picture'] && $input['picture']->isValid())){
-            $path = $input['picture']->store();
+        if($request->hasFile('picture') && $input['picture']->isValid()){
+            $path = $request->file('picture')->store('pictures', 'public');
             $input['picture'] = $path;
         }
 
